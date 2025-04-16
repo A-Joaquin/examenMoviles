@@ -37,6 +37,7 @@ googleGmsGoogleServices = "4.4.2"
 firebaseMessaging = "24.1.1"
 runtimeAndroid = "1.7.8"
 roomCommonJvm = "2.7.0"
+coreSplashscreen = "1.0.1"
 
 
 [libraries]
@@ -98,6 +99,7 @@ navigation-compose = { module = "androidx.navigation:navigation-compose", versio
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 androidx-runtime-android = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "runtimeAndroid" }
 androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
