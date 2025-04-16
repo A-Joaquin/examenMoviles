@@ -4,7 +4,7 @@ import com.lainus.data.BookRepository
 import com.lainus.domain.Book
 
 
-class AddToMyFavorites (
+class AddFavorites (
     val bookRepository: BookRepository
 ){
     suspend fun invoke(book: Book) {
