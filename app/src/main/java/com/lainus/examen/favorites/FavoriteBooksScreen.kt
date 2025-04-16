@@ -172,7 +172,7 @@ fun FavoriteBookGridItem(book: Book) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(220.dp),
+            .height(260.dp),
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(4.dp),
         colors = CardDefaults.cardColors(
@@ -186,13 +186,12 @@ fun FavoriteBookGridItem(book: Book) {
                     .padding(16.dp),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
-                // Contenido superior
                 Column {
                     Text(
                         text = book.title,
-                        style = MaterialTheme.typography.titleMedium,
+                        fontSize = 18.sp, // <-- más grande
                         fontWeight = FontWeight.Bold,
-                        maxLines = 2,
+                        maxLines = 3, // <-- más líneas permitidas
                         overflow = TextOverflow.Ellipsis
                     )
 
@@ -200,31 +199,22 @@ fun FavoriteBookGridItem(book: Book) {
 
                     Text(
                         text = book.authors.joinToString(", "),
-                        style = MaterialTheme.typography.bodyMedium,
+                        fontSize = 14.sp,
                         fontStyle = FontStyle.Italic,
-                        maxLines = 2,
+                        maxLines = 3, // <-- más líneas permitidas
                         overflow = TextOverflow.Ellipsis
                     )
                 }
 
-                // Año en la parte inferior
-                Card(
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer
-                    )
-                ) {
-                    Text(
-                        text = book.publicationYear,
-                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Text(
+                    text = "Publicado en ${book.publicationYear}",
+                    fontSize = 13.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
 
-            // Icono de favorito
             Icon(
                 imageVector = Icons.Default.Favorite,
                 contentDescription = "Favorito",
