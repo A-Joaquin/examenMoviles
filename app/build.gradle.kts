@@ -4,9 +4,9 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kapt)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.detekt)
     alias(libs.plugins.kotlinSerialization)
 }
-
 android {
     namespace = "com.lainus.examen"
     compileSdk = 35
@@ -42,8 +42,8 @@ android {
     }
 }
 
-dependencies {
 
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -52,6 +52,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -59,10 +63,32 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.runtime.livedata)
 
+    implementation(libs.kotlinx.coroutines.core) // Para Flow
+    implementation(libs.coil)
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+    androidTestImplementation(libs.hilt.test)
+    kaptAndroidTest(libs.hilt.compiler)
 
     implementation(project(":usecases"))
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":framework"))
+
+    debugImplementation(libs.leakcanary.android)
+
+    implementation(libs.navigation.compose)
+
+    // serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.hilt.navigation.compose)
 }
+
+kapt {
+    correctErrorTypes = true
+}
+
